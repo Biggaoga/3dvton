@@ -1,8 +1,6 @@
 import './App.css';
 import { Button, Space, Image, Row, Col } from 'antd';
 import { Carousel } from 'antd';
-import { PLYLoader } from 'three/examples/jsm/loaders/PLYLoader';
-import { Canvas, useLoader } from '@react-three/fiber';
 import { useState } from 'react';
 import ManualPlayerPlus from './ManualPlayerPlus';
 import Tryon from './tryon';
@@ -10,6 +8,7 @@ import Drive from './drive'
 import TwoImage from './twoImage';
 import Segment from './segment';
 import Possion from './possion';
+import PlyPointCloud from './plyPointCloud';
 import AutoPlayerPlus from './AutoPlayerPlus';
 import video0 from './resource/input_videos/0.mp4';
 import video1 from './resource/input_videos/1.mp4';
@@ -53,14 +52,7 @@ import origin_cloth2 from './resource/origin_clothes/black_bg_mask_2.mp4'
 import origin_cloth3 from './resource/origin_clothes/black_bg_mask_3.mp4'
 import origin_cloth4 from './resource/origin_clothes/black_bg_mask_4.mp4'
 import origin_cloth5 from './resource/origin_clothes/black_bg_mask_5.mp4'
-
-const getBase64 = file =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-  });
+import show_ply from './resource/assets/show.ply';
 
 const videoSources = [video0, video1, video2, video3, video4, video5];
 const fgrVideoSources = [fgr_video0, fgr_video1, fgr_video2, fgr_video3, fgr_video4, fgr_video5];
@@ -69,6 +61,7 @@ const wanDriveSources = [wan_drive0, wan_drive1, wan_drive2, wan_drive3, wan_dri
 const segmentSources = [segment0, segment1, segment2, segment3, segment4, segment5];
 const possionSources = [possion0, possion1, possion2, possion3, possion4, possion5];
 const originClothSources = [origin_cloth0, origin_cloth1, origin_cloth2, origin_cloth3, origin_cloth4, origin_cloth5];
+const showPlySources = show_ply;
 function App() {
   const [isRecording, setIsRecording] = useState(false);
   const [lastIsRecording, setLastIsRecording] = useState(false);
@@ -77,7 +70,7 @@ function App() {
   const [isSegmentation, setIsSegmentation] = useState(false)
   const [isPoissonFusion, setIsPoissonFusion] = useState(false)
   const [isManualPlayerPlus, setIsManualPlayerPlus] = useState(false)
-  const geometry = useLoader(PLYLoader, './resource/assets/show.ply');
+  // const geometry = useLoader(PLYLoader, './resource/assets/show.ply');
   const handleRecordClick = () => {
     const tmpIsRecording = isRecording;
     setIsRecording(!tmpIsRecording);
@@ -174,14 +167,7 @@ function App() {
             </div> */}
             <AutoPlayerPlus videoSrc={fgrVideoSources} minLoadingSeconds={3}/>
             <AutoPlayerPlus videoSrc={originClothSources} minLoadingSeconds={3}/>
-            <points>
-              <primitive object={geometry} attach="geometry" />
-              <pointsMaterial 
-                size={0.02} 
-                // vertexColors={true} // 如果 ply 文件带颜色
-                color="orange"   // 如果 ply 文件不带颜色，统一着色
-              />
-            </points>
+            {/* <PlyPointCloud url={showPlySources} pointSize={0.02} color="orange" /> */}
             </div>
 
             {/* 选择衣服界面 */}
