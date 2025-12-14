@@ -167,7 +167,7 @@ function App() {
             </div> */}
             <AutoPlayerPlus videoSrc={fgrVideoSources} minLoadingSeconds={3}/>
             <AutoPlayerPlus videoSrc={originClothSources} minLoadingSeconds={3}/>
-            {/* <PlyPointCloud url={showPlySources} pointSize={0.02} color="orange" /> */}
+            <PlyPointCloud url={showPlySources} pointSize={0.02} color="orange" />
             </div>
 
             {/* 选择衣服界面 */}
