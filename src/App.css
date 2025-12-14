@@ -1,5 +1,21 @@
 .App {
   text-align: center;
+  background-image: url('./resource/assets/bg.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  animation: backgroundScroll 3s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes backgroundScroll {
+  from {
+    background-position: center top;
+  }
+  to {
+    background-position: center center;
+  }
 }
 
 .App-logo {
@@ -35,4 +51,275 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 270px));
+  gap: 10px;
+  justify-content: center;
+  max-width: fit-content;
+  margin: 20px auto;
+}
+
+@media (max-width: 1200px) {
+  .video-grid {
+    grid-template-columns: repeat(3, minmax(0, 270px));
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: repeat(2, minmax(0, 270px));
+    gap: 10px;
+  }
+}
+
+/* 添加渐入动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title img {
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0; /* 初始状态为透明 */
+}
+
+.start-button,
+.end-button {
+  /* 毛玻璃效果 */
+  background: rgba(200, 200, 200, 0.23);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.18);
+  /* 阴影效果 */
+  border-radius: 12px;
+  color: #222; /* 可按需调整文字颜色 */
+  font-weight: bold;
+  transition: box-shadow 0.25s, background 0.25s;
+}
+
+.start-button:hover,
+.end-button:hover {
+  background: rgba(255, 255, 255, 0.35); /* 高亮透明度加强 */
+  box-shadow: 0 6px 32px 0 rgba(31, 38, 135, 0.28);
+  color: #ff0000 !important; /* 鼠标移过时字体颜色为黑色 */
+  border-color: #ff0000 !important; /* 鼠标移过时边框颜色为黑色 */
+}
+
+/* 录制状态下的红色闪动效果 */
+@keyframes recordingPulse {
+  0%, 100% {
+    background: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 4px 24px 0 rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    background: rgba(255, 0, 0, 1);
+    box-shadow: 0 4px 24px 0 rgba(255, 0, 0, 0.8);
+  }
+}
+
+.start-button.recording {
+  background: rgba(255, 0, 0, 0.8);
+  border-color: rgba(255, 0, 0, 0.8);
+  color: white !important;
+  animation: recordingPulse 1s ease-in-out infinite;
+}
+
+.start-button.recording:hover {
+  background: rgba(255, 0, 0, 0.9);
+  border-color: rgba(255, 0, 0, 0.9);
+  color: white !important;
+  box-shadow: 0 6px 32px 0 rgba(255, 0, 0, 0.6);
+}
+
+/* FGR视频渐入动画 */
+@keyframes fgrFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fgr-video-grid .video-container {
+  animation: fgrFadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.fgr-video-grid .video-container:nth-child(1) { animation-delay: 0.1s; }
+.fgr-video-grid .video-container:nth-child(2) { animation-delay: 0.2s; }
+.fgr-video-grid .video-container:nth-child(3) { animation-delay: 0.3s; }
+.fgr-video-grid .video-container:nth-child(4) { animation-delay: 0.4s; }
+.fgr-video-grid .video-container:nth-child(5) { animation-delay: 0.5s; }
+.fgr-video-grid .video-container:nth-child(6) { animation-delay: 0.6s; }
+
+/* FGR标题渐入动画 */
+.fgr-title {
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0; /* 初始状态为透明 */
+}
+
+.start-fgr-button {
+  /* 毛玻璃效果 */
+  background: rgba(200, 200, 200, 0.23);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.18);
+  /* 阴影效果 */
+  border-radius: 12px;
+  color: #222; /* 可按需调整文字颜色 */
+  font-weight: bold;
+  transition: box-shadow 0.25s, background 0.25s;
+}
+
+.start-fgr-button:hover {
+  background: rgba(255, 255, 255, 0.35); /* 高亮透明度加强 */
+  box-shadow: 0 6px 32px 0 rgba(31, 38, 135, 0.28);
+  color: #000000 !important; /* 鼠标移过时字体颜色为黑色 */
+  border-color: #000000 !important; /* 鼠标移过时边框颜色为黑色 */
+}
+
+.try-on-img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.18);
+}
+
+.choose-cloth-img {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  width: 70%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  /* box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.18); */
+}
+
+.ant-carousel {
+  background: transparent !important;
+  margin-left: 0;
+  margin-right: auto;
+  width: 70%;
+  aspect-ratio: 1 / 0.6;
+  border-radius: 12px;
+  /* box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.18); */
+  overflow: hidden;
+}
+
+/* 确保 Carousel 内部元素也正确居中 */
+.ant-carousel .slick-slider {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.ant-carousel .slick-list {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.ant-carousel .slick-track {
+  width: 100% !important;
+  height: 100% !important;
+  /* 不要使用 display: flex，这会破坏 Carousel 的滚动功能 */
+}
+
+.ant-carousel .slick-slide {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.ant-carousel .slick-slide > div {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 修改 Carousel 箭头颜色为黑色并加粗 */
+.ant-carousel .slick-prev,
+.ant-carousel .slick-next {
+  color: #000 !important;
+  z-index: 1;
+  font-weight: bold !important;
+  font-size: 24px !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.ant-carousel .slick-prev:before,
+.ant-carousel .slick-next:before {
+  color: #000 !important;
+  opacity: 1 !important;
+  font-weight: bold !important;
+  font-size: 24px !important;
+  text-shadow: 0 0 1px #000, 0 0 2px #000 !important;
+}
+
+.ant-carousel .slick-prev:hover,
+.ant-carousel .slick-next:hover,
+.ant-carousel .slick-prev:focus,
+.ant-carousel .slick-next:focus {
+  color: #000 !important;
+}
+
+.ant-carousel .slick-prev:hover:before,
+.ant-carousel .slick-next:hover:before,
+.ant-carousel .slick-prev:focus:before,
+.ant-carousel .slick-next:focus:before {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+
+/* Ant Design Carousel 箭头图标颜色和加粗 */
+.ant-carousel .ant-carousel-arrow {
+  color: #000 !important;
+  font-weight: bold !important;
+  width: 40px !important;
+  height: 40px !important;
+  font-size: 20px !important;
+}
+
+.ant-carousel .ant-carousel-arrow svg {
+  color: #000 !important;
+  fill: #000 !important;
+  stroke: #000 !important;
+  stroke-width: 2.5px !important;
+  filter: drop-shadow(0 0 0.5px #000) !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.ant-carousel .ant-carousel-arrow:hover {
+  color: #000 !important;
+}
+
+.ant-carousel .ant-carousel-arrow:hover svg {
+  color: #000 !important;
+  fill: #000 !important;
+  stroke: #000 !important;
+  stroke-width: 2.5px !important;
+  filter: drop-shadow(0 0 0.5px #000) !important;
 }

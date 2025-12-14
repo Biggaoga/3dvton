@@ -1,0 +1,64 @@
+.try-on-img {
+    width: 100%;
+    max-width: 270px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.18);
+  }
+
+.start-video-button {
+/* 毛玻璃效果 */
+background: rgba(200, 200, 200, 0.23);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+border: 1px solid rgba(255, 255, 255, 0.35);
+box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.18);
+/* 阴影效果 */
+border-radius: 12px;
+color: #222; /* 可按需调整文字颜色 */
+font-weight: bold;
+transition: box-shadow 0.25s, background 0.25s;
+}
+
+.start-video-button:hover {
+background: rgba(255, 255, 255, 0.35); /* 高亮透明度加强 */
+box-shadow: 0 6px 32px 0 rgba(31, 38, 135, 0.28);
+color: #000000 !important; /* 鼠标移过时字体颜色为黑色 */
+border-color: #000000 !important; /* 鼠标移过时边框颜色为黑色 */
+}
+
+.ant-upload-list-picture-card {
+    gap: 50px !important; /* 图片之间的间距，可以调整为 20px、24px 等 */
+  }
+  
+  .ant-upload-list-picture-card .ant-upload-list-item {
+    width: 144px !important;
+    height: 192px !important;
+    margin: 0 !important;
+  }
+  
+  .ant-upload-select-picture-card {
+    width: 144px !important;
+    height: 192px !important;
+    margin: 0 !important;
+  }
+  
+  /* 控制预览弹窗中图片的大小 */
+  .ant-image-preview-img {
+    max-width: 144px !important;
+    max-height: 192px !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+.try-on-title {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+}

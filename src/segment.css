@@ -1,0 +1,31 @@
+.segment-img {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;   
+}
+
+.start-segmentation-button {
+    /* 毛玻璃效果 */
+    background: rgba(200, 200, 200, 0.23);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.18);
+    /* 阴影效果 */
+    border-radius: 12px;
+    color: #222; /* 可按需调整文字颜色 */
+    font-weight: bold;
+    transition: box-shadow 0.25s, background 0.25s;
+    }
+    
+    .start-segmentation-button:hover {
+    background: rgba(255, 255, 255, 0.35); /* 高亮透明度加强 */
+    box-shadow: 0 6px 32px 0 rgba(31, 38, 135, 0.28);
+    color: #000000 !important; /* 鼠标移过时字体颜色为黑色 */
+    border-color: #000000 !important; /* 鼠标移过时边框颜色为黑色 */
+    }

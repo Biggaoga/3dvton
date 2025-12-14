@@ -1,0 +1,14 @@
+.two-image-container{
+  /* 简笔画风描边效果 */
+  border: 3px solid #222;
+  border-radius: 16px;
+  box-shadow:
+    2px 2px 0 0 #fff,          /* 白色高光，模拟纸张感 */
+    4px 4px 0 0 #222,          /* 外部黑色描边，简笔画效果 */
+    6px 6px 0 0 #fff;          /* 二次提亮 */
+  background: #fff;
+  padding: 12px 20px;
+  /* 手绘感描边虚化模拟，可选： */
+  outline: 1.5px dashed #222;
+  outline-offset: 4px;
+}
