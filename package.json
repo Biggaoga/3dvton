@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/three": "^0.182.0",
     "antd": "^6.1.0",
+    "npyjs": "^1.0.4",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-scripts": "5.0.1",
